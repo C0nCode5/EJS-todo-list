@@ -1,0 +1,21 @@
+    <%- include('sidebar'); -%>
+    <%- include('header'); -%>
+    <div class="box" id="heading">
+        <h1><%= listType %></h1>
+    </div>
+    <div class="box">
+        <% items.forEach((item) => { %>
+        <form action="/delete" method="post">
+            <div class="item">
+                <input type="checkbox" name="checkbox" value="<%= item.name %>" onchange="this.form.submit()">
+                <p><%= item.name %></p>
+            </div>
+            <input type="hidden" name="listName" value="<%= listType %>">
+        </form>
+       <% }) %>
+       <form autocomplete="off" method="post" action="/" class="item">
+        <input type="text" placeholder="enter task" name="newTask">
+        <button type="submit" name="button" value="<%= listType %>">+</button>
+    </form>
+    </div>
+    <%- include('footer'); -%>
