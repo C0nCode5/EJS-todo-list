@@ -128,7 +128,7 @@ if (port == null || port == "") {
   port = 3000;
 }
 app.listen(port, () => {
-    console.log('server running on port!' + port);
+    console.log('server running on port' + port);
 })
 } catch (err) {
     console.log(err)
