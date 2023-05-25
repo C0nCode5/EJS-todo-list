@@ -54,7 +54,9 @@ try {
 
 app.get('/', async function(req, res,) {
     const items = await itemModel.find().then(items => {return items})
-    if(items.length === 0) {
+    if(items === "/favicon.ico"){
+         res.redirect('/')
+    }else if(items.length === 0) {
         itemModel.insertMany(itemArr).then(() => {console.log('items added')}).catch(err => console.log(err));
         res.redirect('/')
     }else {
